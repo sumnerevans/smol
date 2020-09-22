@@ -1,7 +1,20 @@
 <footer>
-	<p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}"><b>{{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }}</b></a>.
-	{{- range .Site.Menus.footer }}
-	<a href="{{ .URL }}"><b>{{ .Name }}</b></a>.
-        {{- end }}
-	</p>
+  <p>
+    &copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}"><b>{{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }}</b></a>.
+    Built with <a href="https://gohugo.io/">Hugo</a> using the
+    <a href="https://github.com/colorchestra/smol">smol</a> theme.
+  </p>
+  <p>
+    Find me around the web:
+    {{- range first 1 .Site.Menus.footer }}
+      <a href="{{ .URL }}" target="_blank"><b>{{ .Name }}</b></a>
+    {{- end }}
+    {{- range after 1 .Site.Menus.footer }}
+      | <a href="{{ .URL }}" target="_blank"><b>{{ .Name }}</b></a>
+    {{- end }}
+  </p>
+  <p>
+    This work is licensed under a
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+  </p>
 </footer>

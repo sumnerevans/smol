@@ -1,16 +1,22 @@
 <header>
-	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}<br>
-	== <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a> ==<br>
-	{{ strings.Repeat ( .Site.Title | len | add 6 ) "=" }}
-	<div style="float: right;">{{ .Site.Params.subtitle }}</div><br>
-	<p>
-	<nav>
-			<a href="/"><b>Start</b></a>.
-			{{ with .Site.Menus.main }}
-			{{ range . }}
-			<a href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>.
-			{{ end }}
-	</nav>
-	</p>
-	{{ end }}
+  <div class="name-and-subtitle">
+    <a href="/" class="site-image">
+      <img src="/profile.jpg" alt="Jonathan Sumner Evans" />
+    </a>
+    <div>
+      <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a><br>
+      <span class="subtitle">{{ .Site.Params.subtitle }}</span><br>
+    </div>
+  </div>
+  <p>
+    <nav>
+      <a href="/"><b>Home</b></a>
+      {{ with .Site.Menus.main }}
+      {{ range . }}
+        | <a href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
+      {{ end }}
+    </nav>
+    <br>
+  </p>
+  {{ end }}
 </header>
