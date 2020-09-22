@@ -10,6 +10,15 @@ body {
   color: #333;
 }
 
+a:link, a:visited {
+  color: #0c61e8;
+  // text-decoration: none;
+}
+
+// a:hover, a:active {
+//   text-decoration: underline;
+// }
+
 h1, h2, h3 {
   line-height:1.2;
 }
@@ -20,12 +29,23 @@ h1 {
 
 @media (prefers-color-scheme: dark){
   body {
-    color: white;
-    background: #333;
+    color: #ddd;
+    background: #282828;
+
+    header {
+      .name-and-subtitle .site-title {
+        color: #ddd;
+      }
+    }
+
+    header, footer {
+      border-color: #ddd;
+    }
   }
 
   a:link, a:visited {
-    color: #5bf;
+    color: #0c61e8;
+    color: #84b4ff;
   }
 }
 
@@ -62,27 +82,33 @@ img.align-center {
   margin: 0 auto;
 }
 
-header div.name-and-subtitle {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
+header {
+  border-bottom: 2px solid #333;
 
-  .site-image {
-    margin-right: 15px;
-    width: 150px;
+  .name-and-subtitle {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
 
-    img {
-      border-radius: 50%;
+    .site-image {
+      margin-right: 15px;
+      width: 150px;
+    }
+
+    .site-title {
+      font-size: 3.5em;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .subtitle {
+      font-size: 1.4em;
     }
   }
 
-  .site-title {
-    font-size: 2.3em;
-    font-weight: bold;
-  }
-
-  .subtitle {
-    font-size: 1.3em;
+  nav {
+    font-size: 1.1em;
   }
 }
 
@@ -94,6 +120,16 @@ dd {
   margin-block-end: 1em;
 
   p.first {
+    margin-top: 0;
+  }
+}
+
+footer {
+  border-top: 2px solid #333;
+  margin-top: 2em;
+  padding-top: 2em;
+
+  p:first-child {
     margin-top: 0;
   }
 }

@@ -5,7 +5,7 @@
     </a>
     <div>
       <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a><br>
-      <span class="subtitle">{{ .Site.Params.subtitle }}</span><br>
+      <span class="subtitle">{{ .Site.Params.subtitle }}</span>
     </div>
   </div>
   <p>
@@ -16,7 +16,6 @@
         | <a href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
       {{ end }}
     </nav>
-    <br>
   </p>
   {{ end }}
 </header>
