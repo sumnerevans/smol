@@ -1,10 +1,5 @@
 <footer>
   <p>
-    &copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}"><b>{{ if .Site.Copyright }}{{ .Site.Copyright }}{{ else }}{{ .Site.Title }}{{ end }}</b></a>.
-    Built with <a href="https://gohugo.io/">Hugo</a> using
-    <a href="https://github.com/sumnerevans/smol">my fork of the smol theme</a>.
-  </p>
-  <p>
     Find me around the web:
     {{- range first 1 .Site.Menus.footer }}
       <a href="{{ .URL }}" target="_blank"><b>{{ .Name }}</b></a>
@@ -14,7 +9,25 @@
     {{- end }}
   </p>
   <p>
-    This work is licensed under a
-    <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    Built with <a href="https://gohugo.io/">Hugo</a> using
+    <a href="https://github.com/sumnerevans/smol">my fork of the smol theme</a>.
+    Switch to the
+    <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+    <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+    <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a>
+    theme.
+  </p>
+  <p>
+    &copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}"><b>{{ .Site.Title }}</b></a>.
+    This work is licensed under the
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
   </p>
 </footer>
+
+{{ $dark_theme_script := resources.Get "js/dark-theme.js" | js.Build "dark-theme.min.js" }}
+<script id="dark-theme-script"
+        src="{{ $dark_theme_script.Permalink }}"
+        data-enable-auto-detect-theme="{{ .Site.Params.ThemeColorAutoDetectBrowserPreference }}"
+        data-default-theme="{{ .Site.Params.ThemeColor }}"
+        type="text/javascript">
+</script>

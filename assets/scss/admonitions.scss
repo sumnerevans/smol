@@ -1,0 +1,108 @@
+@import 'variables';
+
+.admonition {
+  .admonition-title {
+    font-weight: bold;
+    font-size: 1.1em;
+
+    &::before {
+      font-family: FontAwesome;
+      margin-right: 0.5em;
+    }
+  }
+
+  p, div, pre {
+    margin: 1em;
+  }
+
+  // Specifics for each type of admonition
+  &.attention {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-attention-color;
+    background-color: $admonition-attention-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-attention-icon;
+    }
+  }
+
+  &.caution {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-caution-color;
+    background-color: $admonition-caution-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-caution-icon;
+    }
+  }
+
+  &.danger {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-danger-color;
+    background-color: $admonition-danger-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-danger-icon;
+    }
+  }
+
+  &.error {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-error-color;
+    background-color: $admonition-error-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-error-icon;
+    }
+  }
+
+  &.hint {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-hint-color;
+    background-color: $admonition-hint-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-hint-icon;
+    }
+  }
+
+  &.important {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-important-color;
+    background-color: $admonition-important-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-important-icon;
+    }
+  }
+
+  &.note {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-note-color;
+    background-color: $admonition-note-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-note-icon;
+    }
+  }
+
+  &.tip {
+    border: 1px solid $admonition-note-color;
+    color: $admonition-tip-color;
+    background-color: $admonition-tip-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-tip-icon;
+    }
+  }
+
+  &.warning{
+    border: 1px solid $admonition-note-color;
+    color: $admonition-warning-color;
+    background-color: $admonition-warning-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-warning-icon;
+    }
+  }
+}

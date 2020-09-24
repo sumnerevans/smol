@@ -1,3 +1,6 @@
+@import 'admonitions';
+@import 'dark-mode';
+
 html {
   overflow-y: scroll;
 }
@@ -10,14 +13,34 @@ body {
   color: #333;
 }
 
-a:link, a:visited {
-  color: #0c61e8;
-  // text-decoration: none;
+* {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 }
 
-// a:hover, a:active {
-//   text-decoration: underline;
-// }
+a {
+  color: #0c61e8;
+  text-decoration: none;
+
+  &:hover, &:active {
+    color: darken(#0c61e8, 20%);
+    text-decoration: underline;
+  }
+}
+
+a.btn {
+  background-color: #111;
+  color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+    color: #fff;
+    background-color: #000;
+  }
+}
 
 h1, h2, h3 {
   line-height:1.2;
@@ -27,32 +50,10 @@ h1 {
   font-size: 2em;
 }
 
-@media (prefers-color-scheme: dark){
-  body {
-    color: #ddd;
-    background: #282828;
-
-    header {
-      .name-and-subtitle .site-title {
-        color: #ddd;
-      }
-    }
-
-    header, footer {
-      border-color: #ddd;
-    }
-  }
-
-  a:link, a:visited {
-    color: #0c61e8;
-    color: #84b4ff;
-  }
-}
-
 p > code {
   color: #FFFFFF;
-  background:#000000;
-  padding:2px;
+  background: #000000;
+  padding: 2px;
 }
 
 pre {
@@ -75,6 +76,11 @@ article {
 
 img {
   max-width: 100%;
+  opacity: 0.9;
+
+  &:hover, &:active, &:focus {
+    opacity: 1;
+  }
 }
 
 img.align-center {
@@ -90,9 +96,20 @@ header {
     align-items: flex-end;
     flex-direction: row;
 
+    @media screen and (max-width: 600px) {
+      align-items: center;
+      flex-direction: column;
+
+      text-align: center;
+    }
+
     .site-image {
       margin-right: 15px;
       width: 150px;
+
+      img {
+        opacity: 1;
+      }
     }
 
     .site-title {
@@ -132,4 +149,14 @@ footer {
   p:first-child {
     margin-top: 0;
   }
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light-theme) {
+    @include dark-mode-styles;
+  }
+}
+
+body.dark-theme {
+  @include dark-mode-styles;
 }

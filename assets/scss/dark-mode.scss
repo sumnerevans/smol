@@ -1,0 +1,103 @@
+@import 'variables';
+
+@mixin dark-mode-styles {
+  color: #ddd;
+  background: #282828;
+
+  header {
+    .name-and-subtitle .site-title {
+      color: #ddd;
+    }
+  }
+
+  header, footer {
+    border-color: #ddd;
+  }
+
+  a:link, a:visited {
+    color: #84b4ff;
+
+    &:hover, &:active, &:focus {
+      color: lighten(#84b4ff, 10%);
+    }
+  }
+
+  a.btn {
+    background-color: #ddd;
+    color: #282828;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+
+    &:hover, &:active, &:focus {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  img {
+    opacity: 0.7;
+
+    &:hover, &:active, &:focus {
+      opacity: 1;
+    }
+  }
+
+  // Dark mode admonitions
+  .admonition {
+    // Specifics for each type of admonition
+    &.attention {
+      border: 1px solid $admonition-attention-color-dark-theme;
+      color: $admonition-attention-color-dark-theme;
+      background-color: $admonition-attention-bg-color-dark-theme;
+    }
+
+    &.caution {
+      border: 1px solid $admonition-caution-color-dark-theme;
+      color: $admonition-caution-color-dark-theme;
+      background-color: $admonition-caution-bg-color-dark-theme;
+    }
+
+    &.danger {
+      border: 1px solid $admonition-danger-color-dark-theme;
+      color: $admonition-danger-color-dark-theme;
+      background-color: $admonition-danger-bg-color-dark-theme;
+    }
+
+    &.error {
+      border: 1px solid $admonition-error-color-dark-theme;
+      color: $admonition-error-color-dark-theme;
+      background-color: $admonition-error-bg-color-dark-theme;
+    }
+
+    &.hint {
+      border: 1px solid $admonition-hint-color-dark-theme;
+      color: $admonition-hint-color-dark-theme;
+      background-color: $admonition-hint-bg-color-dark-theme;
+    }
+
+    &.important {
+      border: 1px solid $admonition-important-color-dark-theme;
+      color: $admonition-important-color-dark-theme;
+      background-color: $admonition-important-bg-color-dark-theme;
+    }
+
+    &.note {
+      border: 1px solid $admonition-note-color-dark-theme;
+      color: $admonition-note-color-dark-theme;
+      background-color: $admonition-note-bg-color-dark-theme;
+    }
+
+    &.tip {
+      border: 1px solid $admonition-tip-color-dark-theme;
+      color: $admonition-tip-color-dark-theme;
+      background-color: $admonition-tip-bg-color-dark-theme;
+    }
+
+    &.warning {
+      border: 1px solid $admonition-warning-color-dark-theme;
+      color: $admonition-warning-color-dark-theme;
+      background-color: $admonition-warning-bg-color-dark-theme;
+    }
+  }
+}
