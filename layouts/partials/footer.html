@@ -27,7 +27,7 @@
 {{ $dark_theme_script := resources.Get "js/dark-theme.js" | js.Build "dark-theme.min.js" }}
 <script id="dark-theme-script"
         src="{{ $dark_theme_script.Permalink }}"
-        data-enable-auto-detect-theme="{{ .Site.Params.ThemeColorAutoDetectBrowserPreference }}"
-        data-default-theme="{{ .Site.Params.ThemeColor }}"
+        data-enable-auto-detect-theme="{{ .Site.Params.themeColorAutoDetectBrowserPreference }}"
+        data-default-theme="{{ .Site.Params.themeColor }}"
         type="text/javascript">
 </script>

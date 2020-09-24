@@ -1,11 +1,11 @@
-@import 'font-awesome/font-awesome.scss';
+@import 'font-awesome/variables.scss';
 
 // Admonition colors
 $admonition-attention-color: #856404;
 $admonition-attention-color-dark-theme: #fbda7a;
 $admonition-attention-bg-color: #fff3cd;
 $admonition-attention-bg-color-dark-theme: #4a3900;
-$admonition-attention-icon: "\f071\00a0 ";
+$admonition-attention-icon: $fa-var-exclamation-triangle;
 
 $admonition-caution-color: $admonition-attention-color;
 $admonition-caution-color-dark-theme: $admonition-attention-color-dark-theme;
@@ -23,7 +23,7 @@ $admonition-danger-color: #721c24;
 $admonition-danger-color-dark-theme: #ebadb3;
 $admonition-danger-bg-color: #f8d7da;
 $admonition-danger-bg-color-dark-theme: #28070a;
-$admonition-danger-icon: "\f06a\00a0 ";
+$admonition-danger-icon: $fa-var-exclamation-circle;
 
 $admonition-error-color: $admonition-danger-color;
 $admonition-error-color-dark-theme: $admonition-danger-color-dark-theme;
@@ -35,7 +35,7 @@ $admonition-hint-color: #004085 ;
 $admonition-hint-color-dark-theme: #7abaff;
 $admonition-hint-bg-color: #cce5ff;
 $admonition-hint-bg-color-dark-theme: #001933;
-$admonition-hint-icon: "\f0eb\00a0 ";
+$admonition-hint-icon: $fa-var-lightbulb-o;
 
 $admonition-tip-color: $admonition-hint-color;
 $admonition-tip-color-dark-theme: $admonition-hint-color-dark-theme;

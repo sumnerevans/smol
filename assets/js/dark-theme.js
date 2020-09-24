@@ -8,12 +8,6 @@ function ThemeManager(options) {
       '(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)'
   );
 
-  function setEnabledAndDisableMediaQuery(elementId, enabled) {
-    var element = document.getElementById(elementId);
-    element.disabled = !enabled;
-    element.media = '';
-  }
-
   function detectThemeAndSwitchStyle() {
     var theme = localStorage.getItem('themeOverride');
     if (theme !== 'light' && theme !== 'dark') {
@@ -23,12 +17,6 @@ function ThemeManager(options) {
         theme = defaultTheme;
       }
     }
-
-    // (Dis|En)able the styles according to the user's desired theme.  Get rid
-    // of the media queries, since we are handling it in JS.
-    setEnabledAndDisableMediaQuery('dark-theme-style', theme === 'dark');
-    setEnabledAndDisableMediaQuery('pygments-dark-theme', theme === 'dark');
-    setEnabledAndDisableMediaQuery('pygments-light-theme', theme === 'light');
 
     if (theme === 'dark') {
       document.body.classList.add('dark-theme');

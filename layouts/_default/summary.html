@@ -4,17 +4,25 @@
     <b>
       Posted at
       <time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>
-      {{ if isset .Params "categories" }}
+      {{ with .Params.categories }}
         in
-        {{ range .Params.categories }}
+        {{ range first 1 . }}
           <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-        {{ end }}
+        {{- end -}}
+        {{- range after 1 . -}}
+          , <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{- end -}}
       {{ end }}
     </b>
-    <br>
-    Tags:
-    {{ range .Params.tags }}
-      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ with .Params.tags }}
+      <br>
+      Tags:
+      {{ range first 1 . }}
+        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{- end -}}
+      {{- range after 1 . -}}
+        , <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{- end -}}
     {{ end }}
   </p>
   <div>

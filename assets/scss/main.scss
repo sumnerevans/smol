@@ -1,5 +1,6 @@
 @import 'admonitions';
 @import 'dark-mode';
+@import 'font-awesome/font-awesome';
 
 html {
   overflow-y: scroll;
@@ -51,16 +52,15 @@ h1 {
 }
 
 p > code {
-  color: #FFFFFF;
-  background: #000000;
+  color: #ddd;
+  background: #282828;
   padding: 2px;
 }
 
 pre {
-  color: #FFFFFF;
-  background: #000000;
   padding: 24px;
   white-space: pre-wrap;
+  border: 1px solid black;
 }
 
 article {
@@ -151,12 +151,22 @@ footer {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: no-preference), (prefers-color-scheme: dark) {
   body:not(.light-theme) {
+    @import 'pygments/dracula';
     @include dark-mode-styles;
+  }
+  body.light-theme {
+    @import 'pygments/github';
   }
 }
 
-body.dark-theme {
-  @include dark-mode-styles;
+@media (prefers-color-scheme: light) {
+  body:not(.dark-theme) {
+    @import 'pygments/github';
+  }
+  body.dark-theme {
+    @import 'pygments/dracula';
+    @include dark-mode-styles;
+  }
 }

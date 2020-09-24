@@ -2,30 +2,58 @@
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <style type=text/css>
+  <meta charset="UTF-8" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Page Metadata -->
+  {{ if (eq .Title .Site.Title) }}
+    {{ with $title := .Title }}
+      <title>{{ . }}</title>
+      <meta property="og:title" content="{{ . }}"/>
+    {{ end }}
+  {{ else }}
+    {{ with $title := printf "%s - %s" .Title .Site.Title }}
+      <title>{{ . }}</title>
+      <meta property="og:title" content="{{ . }}"/>
+    {{ end }}
+  {{ end }}
+  {{ with .Site.Params.description }}
+    <meta name="description" content="{{ . }}" />
+    <meta property="og:description" content="{{ . }}"/>
+  {{ end }}
+  {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}" />
+  {{ end }}
+  <meta property="og:site_name" content="{{ .Site.Title }}"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:url" content="{{ .Site.BaseURL }}"/>
+  {{ with .Site.Params.logo }}
+    <meta property="og:image" content="{{ . }}">
+  {{ end }}
+
+  <!-- CSS -->
+  <!-- Always make sure to force monospace, even if the style hasn't been loaded yet. -->
+  <style type="text/css">
     body {
       font-family: monospace;
     }
   </style>
-  <title>{{ .Title }}</title>
-  {{ with .Site.Params.description }}
-  <meta name="description" content="{{ . }}">{{ end }}
-  {{ with .Site.Params.author }}
-  <meta name="author" content="{{ . }}">{{ end }}
 
-  <!-- CSS -->
-  {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed")}}
+  <!-- Load the main stylesheet. -->
+  {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
   {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  <link rel="stylesheet" href="{{ $style.Permalink }}" />
 
+  <!-- Load custom CSS. -->
   {{ range .Site.Params.customCSS -}}
-    <link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}">
+    <link rel="stylesheet" href="{{ . | relURL }}?rnd={{ now.Unix }}" />
   {{- end }}
+
+  <!-- RSS -->
   {{ with .OutputFormats.Get "RSS" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
   {{- end }}
 </head>
 
