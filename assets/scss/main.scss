@@ -59,8 +59,13 @@ p > code {
 
 pre {
   padding: 24px;
-  white-space: pre-wrap;
   border: 1px solid black;
+  overflow-x: auto;
+  opacity: 0.7;
+}
+
+pre:hover {
+  opacity: 1;
 }
 
 article {
@@ -83,9 +88,30 @@ img {
   }
 }
 
-img.align-center {
+.align-center {
   display: block;
   margin: 0 auto;
+}
+
+// TODO move this stuff out to custom css
+.strike {
+  text-decoration: line-through;
+}
+/* Image Galleries */
+.gallery {
+  text-align: center;
+
+  tr {
+    max-width: 60%;
+
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  img {
+    padding: 5px;
+  }
 }
 
 header {
@@ -138,6 +164,22 @@ dd {
 
   p.first {
     margin-top: 0;
+  }
+}
+
+.next-prev {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a {
+    margin: 1em 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
   }
 }
 
