@@ -19,6 +19,9 @@
             {{- end -}}
           {{ end }}
         </b>
+        {{ with .ReadingTime }}
+          • {{ . }} minute read
+        {{ end }}
         {{ with .Params.tags }}
           <br>
           Tags:

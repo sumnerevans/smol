@@ -32,7 +32,7 @@ a {
 
 a.btn {
   background-color: #111;
-  color: #ddd;
+  color: $foreground-dark-mode;
   padding: 10px;
   border-radius: 5px;
   text-decoration: none;
@@ -52,8 +52,8 @@ h1 {
 }
 
 p > code {
-  color: #ddd;
-  background: #282828;
+  color: $foreground-dark-mode;
+  background: $background-dark-mode;
   padding: 2px;
 }
 
@@ -79,6 +79,11 @@ article {
   width: 100%;
 }
 
+blockquote {
+  border-left: 0.7em solid black;
+  padding: 0.5em 0 0.5em 1em;
+}
+
 img {
   max-width: 100%;
   opacity: 0.9;
@@ -91,6 +96,10 @@ img {
 .align-center {
   display: block;
   margin: 0 auto;
+
+  .figure {
+    margin: 1em auto;
+  }
 }
 
 // TODO move this stuff out to custom css

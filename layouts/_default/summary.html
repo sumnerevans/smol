@@ -14,6 +14,9 @@
         {{- end -}}
       {{ end }}
     </b>
+    {{ with .ReadingTime }}
+      • {{ . }} minute read
+    {{ end }}
     {{ with .Params.tags }}
       <br>
       Tags:
@@ -26,6 +29,11 @@
     {{ end }}
   </p>
   <div>
+    {{ if .Params.image }}
+      <div class="summary-image">
+        <img src="/{{ .File.Dir }}{{ .Params.image }}" />
+      </div>
+    {{ end }}
     {{ .Summary }}
     {{ if .Truncated }}
       <a href="{{ .Permalink }}">Read more...</a>

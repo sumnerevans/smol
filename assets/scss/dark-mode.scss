@@ -1,17 +1,17 @@
 @import 'variables';
 
 @mixin dark-mode-styles {
-  color: #ddd;
-  background: #282828;
+  color: $foreground-dark-mode;
+  background: $background-dark-mode;
 
   header {
     .name-and-subtitle .site-title {
-      color: #ddd;
+      color: $foreground-dark-mode;
     }
   }
 
   header, footer {
-    border-color: #ddd;
+    border-color: $foreground-dark-mode;
   }
 
   a:link, a:visited {
@@ -23,8 +23,8 @@
   }
 
   a.btn {
-    background-color: #ddd;
-    color: #282828;
+    background-color: $foreground-dark-mode;
+    color: $background-dark-mode;
     padding: 10px;
     border-radius: 5px;
     text-decoration: none;
