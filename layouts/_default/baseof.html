@@ -44,7 +44,7 @@
   <!-- Load the main stylesheet. -->
   {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed") }}
   {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}" />
+  <link rel="stylesheet" href="{{ $style.Permalink }}?cb={{ now.Unix }}" />
 
   <!-- Load custom CSS. -->
   {{ range .Site.Params.customCSS -}}

@@ -31,7 +31,7 @@
   <div>
     {{ if .Params.image }}
       <div class="summary-image">
-        <img src="/{{ .File.Dir }}{{ .Params.image }}" />
+        <img src="/{{ path.Join .File.Dir .Params.image }}" />
       </div>
     {{ end }}
     {{ .Summary }}

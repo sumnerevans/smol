@@ -43,6 +43,15 @@
     }
   }
 
+  main code {
+    color: #000;
+    background: $foreground-dark-mode;
+  }
+
+  kbd {
+    border-color: $foreground-dark-mode;
+  }
+
   // Dark mode admonitions
   .admonition {
     // Specifics for each type of admonition
