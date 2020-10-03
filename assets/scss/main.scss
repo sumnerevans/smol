@@ -53,14 +53,15 @@ h1 {
 
 main code {
   color: #fff;
-  background: $background-dark-mode;
+  background: #111;
   padding: 3px 0.5em;
 }
 
 kbd {
-  border: 1px solid $background-dark-mode;
+  color: #fff;
+  background-color: #111;
   padding: 3px 0.5em;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 pre {

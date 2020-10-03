@@ -44,12 +44,13 @@
   }
 
   main code {
-    color: #000;
-    background: $foreground-dark-mode;
+    color: #fff;
+    background: #111;
   }
 
   kbd {
     border-color: $foreground-dark-mode;
+    background-color: #111;
   }
 
   // Dark mode admonitions
