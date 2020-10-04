@@ -39,8 +39,8 @@
     </div>
   </article>
 </main>
+{{ $reg := (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 <div class="next-prev">
-  {{ $reg := (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
   {{ with $reg.Prev . }}
     <a class="prev" href="{{ .Permalink }}" title="{{ .Title }}">« {{ .Title | truncate 50 "..." }}</a>
   {{ end }}
@@ -49,4 +49,23 @@
   {{ end }}
 </div>
 {{ partial "sidebar.html" . }}
+{{ if and (or ($reg.Prev .) ($reg.Next .)) (.Site.Params.issoUrl) }}
+  <aside>
+    <!-- Isso -->
+    <section id="isso-thread" data-title="{{ .Title }}"></section>
+    {{ $issoScript := resources.Get "js/isso.min.js" }}
+    <script
+      type="text/javascript"
+      src="{{ $issoScript.Permalink }}"
+      data-isso="{{ .Site.Params.issoUrl }}"
+      {{ range $k, $v := .Site.Params.issoOptions }}
+        data-isso-{{ $k }}="{{ $v }}"
+      {{ end }}
+    ></script>
+    <noscript>
+      Please enable JavaScript to view comments.
+    </noscript>
+    <!-- End Isso -->
+  </aside>
+{{ end }}
 {{ end }}

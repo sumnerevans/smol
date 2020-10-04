@@ -43,7 +43,7 @@
     }
   }
 
-  main code {
+  main *:not(pre) > code {
     color: #fff;
     background: #111;
   }
@@ -51,6 +51,56 @@
   kbd {
     border-color: $foreground-dark-mode;
     background-color: #111;
+  }
+
+  section#isso-thread {
+    div.textarea,
+    .auth-section p.input-wrapper input,
+    .notification-section input {
+      background: #111;
+      color: #eee;
+    }
+
+    >h4 {
+      color: #eee;
+    }
+
+    .isso-postbox > .form-wrapper .preview {
+      background: repeating-linear-gradient(
+        -45deg,
+        #222, #222 10px,
+        #111 10px, #111 20px
+      );
+    }
+
+    .isso-comment > div.text-wrapper {
+      > .isso-comment-header {
+        .author {
+          color: #eee;
+        }
+
+        .spacer, a.permalink, .note, a.parent {
+          color: #aaa;
+
+          &:hover {
+            color: #eee;
+          }
+        }
+      }
+
+      > .isso-comment-footer a:hover {
+        // Unfortunately, Isso uses a lot of !important in its styles, so I
+        // have to override that.
+        text-shadow: #222 0 0 1px !important;
+      }
+    }
+
+    .post-action input {
+      background-color: #111;
+      color: #eee;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
   }
 
   // Dark mode admonitions

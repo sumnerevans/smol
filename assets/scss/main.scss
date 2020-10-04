@@ -51,7 +51,7 @@ h1 {
   font-size: 2em;
 }
 
-main code {
+main *:not(pre) > code {
   color: #fff;
   background: #111;
   padding: 3px 0.5em;
@@ -196,6 +196,21 @@ dd {
     align-items: center;
     flex-direction: column;
     text-align: center;
+  }
+}
+
+// Isso
+// Add a bit of padding between each of the entry boxes in the Isso auth
+// section. By default, they are squished together, which looks terrible.
+section#isso-thread {
+  .auth-section .input-wrapper {
+    margin-right: 5px;
+  }
+
+  .isso-comment > div.text-wrapper {
+    a.author:hover {
+      text-decoration: underline;
+    }
   }
 }
 
