@@ -15,10 +15,10 @@
     <nav>
       <a href="{{ .Site.Home.Permalink }}"><b>Home</b></a>
       {{ with .Site.Menus.main }}
-      {{ range . }}
-        | <a href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
+        {{ range . }}
+          | <a href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
+        {{ end }}
       {{ end }}
     </nav>
   </p>
-  {{ end }}
 </header>

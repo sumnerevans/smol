@@ -1,6 +1,6 @@
 <footer>
   <p>
-    Find me around the web:
+    Find me around the web:<br>
     {{- range first 1 .Site.Menus.footer }}
       <a href="{{ .URL }}" target="_blank"><b>{{ .Name }}</b></a>
     {{- end }}
@@ -31,4 +31,4 @@
         data-default-theme="{{ .Site.Params.themeColor }}"
         type="text/javascript">
 </script>
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

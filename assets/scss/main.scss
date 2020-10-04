@@ -2,6 +2,39 @@
 @import 'dark-mode';
 @import 'font-awesome/font-awesome';
 
+// Iosevka
+$iosevka-font-path: '/fonts/iosevka';
+$iosevka-version: '3.6.3';
+@font-face {
+  font-family: 'Iosevka';
+  src:
+    url('#{$iosevka-font-path}/woff2/iosevka-regular.woff2?v=#{$iosevka-version}') format('woff2'),
+    url('#{$iosevka-font-path}/woff/iosevka-regular.woff?v=#{$iosevka-version}') format('woff'),
+    url('#{$iosevka-font-path}/ttf/iosevka-regular.ttf?v=#{$iosevka-version}') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src:
+    url('#{$iosevka-font-path}/woff2/iosevka-bold.woff2?v=#{$iosevka-version}') format('woff2'),
+    url('#{$iosevka-font-path}/woff/iosevka-bold.woff?v=#{$iosevka-version}') format('woff'),
+    url('#{$iosevka-font-path}/ttf/iosevka-bold.ttf?v=#{$iosevka-version}') format('truetype');
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Iosevka';
+  src:
+    url('#{$iosevka-font-path}/woff2/iosevka-oblique.woff2?v=#{$iosevka-version}') format('woff2'),
+    url('#{$iosevka-font-path}/woff/iosevka-oblique.woff?v=#{$iosevka-version}') format('woff'),
+    url('#{$iosevka-font-path}/ttf/iosevka-oblique.ttf?v=#{$iosevka-version}') format('truetype');
+  font-weight: italic;
+  font-style: italic;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -10,7 +43,9 @@ body {
   max-width: 800px;
   margin: 40px auto;
   padding: 0 10px;
-  font: 14px/1.5 monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: Iosevka, monospace;
   color: #333;
 }
 
@@ -68,7 +103,7 @@ pre {
   padding: 24px;
   border: 1px solid black;
   overflow-x: auto;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 pre:hover {
@@ -183,6 +218,13 @@ dd {
   }
 }
 
+.docutils.field-list {
+  th.field-name {
+    text-align: left;
+    padding-right: 1em;
+  }
+}
+
 .next-prev {
   display: flex;
   flex-direction: row;
@@ -211,6 +253,10 @@ section#isso-thread {
     a.author:hover {
       text-decoration: underline;
     }
+  }
+
+  input {
+    font-family: Iosevka, monospace;
   }
 }
 
