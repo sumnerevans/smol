@@ -19,6 +19,18 @@
           | <a href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
         {{ end }}
       {{ end }}
+      | <a id="toggle_search" href="javascript:void()"><b>Search</b></a>
     </nav>
   </p>
+  <div class="hidden" id="search-container">
+    <form class="search" method="get">
+      <input id="search-query" type="search" placeholder="Search..." disabled="disabled" />
+    </form>
+    <div id="search-results" class="search-results">
+      <p id="search-results-loading">Loading search index...</p>
+    </div>
+  </div>
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+  {{ $search_script := resources.Get "js/search.js" | js.Build (dict "targetPath" "search.min.js" "minify" true) }}
+  <script src="{{ $search_script.Permalink }}" type="text/javascript"></script>
 </header>

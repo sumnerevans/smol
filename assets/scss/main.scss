@@ -209,6 +209,64 @@ header {
   nav {
     font-size: 1.1em;
   }
+
+  #search-container {
+    margin: 20px 0;
+
+    input[type=search] {
+      border-radius: 0;
+      padding: 8px;
+      border: 1px solid black;
+      width: 100%;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    .search-results {
+      #search-results-loading, .no-results {
+        text-align: center;
+      }
+
+      li {
+        border-left: 4px solid transparent;
+        margin-left: -8px;
+        padding-left: 4px;
+      }
+
+      li:hover, li:active {
+        border-left: 4px solid #0c61e8;
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+
+        &:hover, &:active {
+          color: #333;
+          text-decoration: none;
+        }
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      p {
+        margin: 8px 0;
+      }
+
+      mark {
+        padding: 1px 5px;
+      }
+    }
+  }
 }
 
 dt {

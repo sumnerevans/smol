@@ -8,6 +8,28 @@
     .name-and-subtitle .site-title {
       color: $foreground-dark-mode;
     }
+
+    #search-container {
+      .search input {
+        background-color: #1a1a1a;
+        border: 1px solid #000;
+        color: #eee;
+      }
+
+      .search-results {
+        a {
+          color: #eee;
+
+          &:hover, &:active {
+            color: #eee;
+          }
+        }
+
+        li:hover, li:active {
+          border-color: #84b4ff;
+        }
+      }
+    }
   }
 
   header, footer {

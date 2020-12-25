@@ -24,7 +24,7 @@
   </p>
 </footer>
 
-{{ $dark_theme_script := resources.Get "js/dark-theme.js" | js.Build "dark-theme.min.js" }}
+{{ $dark_theme_script := resources.Get "js/dark-theme.js" | js.Build (dict "targetPath" "dark-theme.min.js" "minify" true) }}
 <script id="dark-theme-script"
         src="{{ $dark_theme_script.Permalink }}"
         data-enable-auto-detect-theme="{{ .Site.Params.themeColorAutoDetectBrowserPreference }}"
