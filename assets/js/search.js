@@ -16,7 +16,8 @@
   let articlesJson = [];
   let searchIndex = null;
 
-  // Request the search index.
+  // Request the search index. I'm just using raw a XMLHttpRequest because it's
+  // not that hard and I don't want to import another library.
   const getSearchIndexRequest = new XMLHttpRequest();
   getSearchIndexRequest.open('GET', '/index.json');
   getSearchIndexRequest.onload = () => {
@@ -59,6 +60,9 @@
     const padChars = 70;
 
     let nextStart = string.length;
+    // Sort backwards so that we don't mutate the part of the string that we
+    // need to access. Also, limit to the first 10 occurrences of the term
+    // (which are the last 10 ranges in the reverse-sorted list).
     for (let [start, end] of highlightRanges.sort((x, y) => x[0] < y[0]).slice(Math.max(0, highlightRanges.length - 10))) {
       let diff = nextStart - (start + end);
       let toEnd = string.substring(start + end);
