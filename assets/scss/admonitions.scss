@@ -17,6 +17,16 @@
     margin: 1em;
   }
 
+  // By default, make it look like a note.
+  border: 1px solid $admonition-note-color;
+  color: $admonition-note-color;
+  background-color: $admonition-note-bg-color;
+
+  .admonition-title::before {
+    content: $admonition-note-icon;
+  }
+
+
   // Specifics for each type of admonition
   &.attention {
     border: 1px solid $admonition-note-color;
@@ -75,16 +85,6 @@
 
     .admonition-title::before {
       content: $admonition-important-icon;
-    }
-  }
-
-  &.note {
-    border: 1px solid $admonition-note-color;
-    color: $admonition-note-color;
-    background-color: $admonition-note-bg-color;
-
-    .admonition-title::before {
-      content: $admonition-note-icon;
     }
   }
 

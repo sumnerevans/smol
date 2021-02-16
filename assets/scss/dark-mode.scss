@@ -127,6 +127,11 @@
 
   // Dark mode admonitions
   .admonition {
+    // Default to note look.
+    border: 1px solid $admonition-note-color-dark-theme;
+    color: $admonition-note-color-dark-theme;
+    background-color: $admonition-note-bg-color-dark-theme;
+
     // Specifics for each type of admonition
     &.attention {
       border: 1px solid $admonition-attention-color-dark-theme;
@@ -162,12 +167,6 @@
       border: 1px solid $admonition-important-color-dark-theme;
       color: $admonition-important-color-dark-theme;
       background-color: $admonition-important-bg-color-dark-theme;
-    }
-
-    &.note {
-      border: 1px solid $admonition-note-color-dark-theme;
-      color: $admonition-note-color-dark-theme;
-      background-color: $admonition-note-bg-color-dark-theme;
     }
 
     &.tip {
