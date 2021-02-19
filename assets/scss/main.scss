@@ -86,12 +86,6 @@ h1 {
   font-size: 2em;
 }
 
-main *:not(pre) > code {
-  color: #fff;
-  background: #111;
-  padding: 3px 0.5em;
-}
-
 kbd {
   color: #fff;
   background-color: #111;
@@ -99,11 +93,20 @@ kbd {
   border-radius: 4px;
 }
 
+main *:not(pre) > code,
+tt {
+  background-color: #0002;
+  border-radius: 4px;
+  font-family: Iosevka, monospace;
+  padding: 1px 0.5em;
+}
+
 pre {
-  padding: 24px;
   border: 1px solid black;
-  overflow-x: auto;
+  font-family: Iosevka, monospace;
   opacity: 0.8;
+  overflow-x: auto;
+  padding: 24px;
 }
 
 pre:hover {
@@ -315,6 +318,14 @@ section#isso-thread {
 
   input {
     font-family: Iosevka, monospace;
+    color: #333;
+  }
+
+  .post-action input {
+    border: none;
+    color: #333;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
 }
 

@@ -65,18 +65,17 @@
     }
   }
 
-  main *:not(pre) > code {
-    color: #fff;
-    background: #111;
-  }
-
   kbd {
     border-color: $foreground-dark-mode;
     background-color: #111;
   }
 
+  main *:not(pre) > code,
+  tt {
+    background-color: #ffffff18;
+  }
+
   section#isso-thread {
-    div.textarea,
     .auth-section p.input-wrapper input,
     .notification-section input {
       background: #111;
@@ -87,12 +86,18 @@
       color: #eee;
     }
 
-    .isso-postbox > .form-wrapper .preview {
-      background: repeating-linear-gradient(
-        -45deg,
-        #0a0a0a, #0a0a0a 10px,
-        #111 10px, #111 20px
-      );
+    .isso-postbox > .form-wrapper {
+      div.textarea {
+        background: #111;
+      }
+
+      .preview {
+        background: repeating-linear-gradient(
+          -45deg,
+          #0a0a0a, #0a0a0a 10px,
+          #111 10px, #111 20px
+        );
+      }
     }
 
     .isso-comment > div.text-wrapper {
@@ -120,8 +125,6 @@
     .post-action input {
       background-color: #111;
       color: #eee;
-      padding-left: 0.5em;
-      padding-right: 0.5em;
     }
   }
 
