@@ -147,7 +147,7 @@ img {
   }
 }
 
-// TODO move this stuff out to custom css
+// TODO: START move this stuff out to custom css
 .strike {
   text-decoration: line-through;
 }
@@ -167,6 +167,47 @@ img {
     padding: 5px;
   }
 }
+details.portfolio-item {
+  margin-bottom: 1em;
+
+  > summary {
+    background-color: #eee;
+    padding: 0.5em 1em;
+
+    h3 {
+      display: inline;
+      margin: 0;
+
+      .permalink {
+        opacity: 0;
+      }
+    }
+
+    span {
+      float: right;
+    }
+
+    img {
+      max-height: 1em;
+      max-width: 1em;
+    }
+
+    p {
+      margin: 0 1.1em;
+    }
+
+    &:hover {
+      h3 .permalink {
+        opacity: 1;
+      }
+    }
+  }
+
+  > div {
+    margin-left: 2em;
+  }
+}
+// TODO: END move this stuff out to custom css
 
 header {
   border-bottom: 2px solid #333;

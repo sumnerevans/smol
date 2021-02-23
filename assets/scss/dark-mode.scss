@@ -184,4 +184,10 @@
       background-color: $admonition-warning-bg-color-dark-theme;
     }
   }
+
+  // TODO START move to custom
+  details.portfolio-item > summary {
+    background-color: #202020;
+  }
+  // TODO END move to custom
 }
