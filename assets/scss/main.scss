@@ -167,6 +167,17 @@ img {
     padding: 5px;
   }
 }
+details.youtube-expander {
+  > summary {
+    background-color: #eee;
+    padding: 1em;
+
+    i {
+      color: #e52d27;
+      font-size: 1.1em;
+    }
+  }
+}
 details.portfolio-item {
   margin-bottom: 1em;
 
