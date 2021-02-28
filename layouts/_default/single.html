@@ -19,6 +19,9 @@
             {{- end -}}
           {{ end }}
         </b>
+        {{ with .WordCount }}
+          • {{ . }} words
+        {{ end }}
         {{ with .ReadingTime }}
           • {{ . }} minute read
         {{ end }}
