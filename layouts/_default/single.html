@@ -52,6 +52,7 @@
   {{ end }}
 </div>
 {{ partial "sidebar.html" . }}
+{{ partial "webring.html" . }}
 {{ if and (or ($reg.Prev .) ($reg.Next .)) (.Site.Params.issoUrl) }}
   <aside>
     <h3>COMMENTS</h3>
