@@ -65,13 +65,13 @@
     }
   }
 
-  kbd {
-    border-color: $foreground-dark-mode;
-    background-color: #111;
+  main *:not(pre) > code,
+  kbd,
+  tt {
+    background-color: #ffffff18;
   }
 
-  main *:not(pre) > code,
-  tt {
+  figure {
     background-color: #ffffff18;
   }
 
