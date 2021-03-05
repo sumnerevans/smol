@@ -7,7 +7,7 @@
         <b>
           Posted
           {{ if .Date }}
-            at <time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>
+            on <time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>
           {{ end }}
           {{ with .Params.categories }}
             in
