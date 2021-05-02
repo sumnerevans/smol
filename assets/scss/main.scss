@@ -181,6 +181,12 @@ details.youtube-expander {
     }
   }
 }
+h2 .permalink {
+  opacity: 0;
+}
+h2:hover .permalink {
+  opacity: 1;
+}
 details.portfolio-item {
   margin-bottom: 1em;
 
