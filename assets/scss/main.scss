@@ -153,8 +153,9 @@ img {
   display: block;
   margin: 0 auto;
 
-  .figure {
+  &.figure {
     margin: 1em auto;
+    text-align: center;
   }
 }
 
