@@ -180,6 +180,8 @@ img {
   }
 }
 details.youtube-expander {
+  margin: 1em 0;
+
   > summary {
     background-color: #eee;
     padding: 1em;
@@ -187,6 +189,18 @@ details.youtube-expander {
     i {
       color: #e52d27;
       font-size: 1.1em;
+    }
+  }
+}
+details.advent-of-code-part-expander {
+  border: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 1em;
+
+  > summary {
+
+    h3 {
+      display: inline;
     }
   }
 }
