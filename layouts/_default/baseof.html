@@ -32,6 +32,9 @@
   {{ with .Site.Params.logo }}
     <meta property="og:image" content="{{ . }}">
   {{ end }}
+  {{ if .Params.image }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}/{{ path.Join .File.Dir .Params.image }}" />
+  {{ end }}
 
   <!-- CSS -->
   <!-- Always make sure to force monospace, even if the style hasn't been loaded yet. -->
