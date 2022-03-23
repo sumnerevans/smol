@@ -1,8 +1,9 @@
 {{ define "main" }}
+{{ $reg := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 <main>
   <article>
     <h1>{{ .Title }}</h1>
-    {{ if or .Date .Params.tags .Params.categories }}
+    {{ if and (or ($reg.Prev .) ($reg.Next .)) (or .Date .Params.tags .Params.categories) }}
       <p>
         <b>
           Posted
@@ -42,7 +43,6 @@
     </div>
   </article>
 </main>
-{{ $reg := (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
 <div class="next-prev">
   {{ with $reg.Prev . }}
     <a class="prev" href="{{ .Permalink }}" title="{{ .Title }}">« {{ .Title | truncate 50 "..." }}</a>
