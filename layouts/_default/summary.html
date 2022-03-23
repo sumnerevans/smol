@@ -32,11 +32,11 @@
     {{ end }}
   </p>
   <div>
-    {{ if .Params.image }}
+    {{- if .Params.image -}}
       <div class="summary-image">
-        <img src="/{{ path.Join .File.Dir .Params.image }}" />
+        <img src="{{ .Site.BaseURL }}/{{ path.Join .File.Dir .Params.image }}" />
       </div>
-    {{ end }}
+    {{- end -}}
     {{ .Summary }}
     {{ if .Truncated }}
       <a href="{{ .Permalink }}">Read more...</a>

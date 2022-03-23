@@ -9,32 +9,25 @@
 
   <!-- Page Metadata -->
   {{ if (eq .Title .Site.Title) }}
-    {{ with $title := .Title }}
-      <title>{{ . }}</title>
-      <meta property="og:title" content="{{ . }}"/>
-    {{ end }}
+    <title>{{ .Title }}</title>
   {{ else }}
     {{ with $title := printf "%s - %s" .Title .Site.Title }}
       <title>{{ . }}</title>
-      <meta property="og:title" content="{{ . }}"/>
     {{ end }}
   {{ end }}
-  {{ with .Site.Params.description }}
-    <meta name="description" content="{{ . }}" />
-    <meta property="og:description" content="{{ . }}"/>
-  {{ end }}
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
   {{ with .Site.Params.author }}
     <meta name="author" content="{{ . }}" />
   {{ end }}
-  <meta property="og:site_name" content="{{ .Site.Title }}"/>
-  <meta property="og:type" content="blog"/>
-  <meta property="og:url" content="{{ .Site.BaseURL }}"/>
-  {{ with .Site.Params.logo }}
-    <meta property="og:image" content="{{ . }}">
-  {{ end }}
   {{ if .Params.image }}
     <meta property="og:image" content="{{ .Site.BaseURL }}/{{ path.Join .File.Dir .Params.image }}" />
+  {{ else }}
+    {{ with .Site.Params.logo }}
+      <meta property="og:image" content="{{ . }}">
+    {{ end }}
   {{ end }}
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
 
   <!-- CSS -->
   <!-- Always make sure to force monospace, even if the style hasn't been loaded yet. -->
