@@ -453,7 +453,7 @@ footer {
 
 @media (prefers-color-scheme: no-preference), (prefers-color-scheme: dark) {
   body:not(.light-theme) {
-    @import 'pygments/dracula';
+    @import 'pygments/monokai';
     @include dark-mode-styles;
   }
   body.light-theme {
@@ -466,7 +466,7 @@ footer {
     @import 'pygments/github';
   }
   body.dark-theme {
-    @import 'pygments/dracula';
+    @import 'pygments/monokai';
     @include dark-mode-styles;
   }
 }
