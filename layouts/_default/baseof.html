@@ -54,6 +54,10 @@
   {{ with .OutputFormats.Get "RSS" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
   {{- end }}
+
+  {{- with .Site.Params.plausible -}}
+    {{ printf `<script defer data-domain="%s" src="%s/js/plausible.js"></script>` .domain .plausibleRoot | safeHTML }}
+  {{- end -}}
 </head>
 
 <body>
