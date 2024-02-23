@@ -58,6 +58,10 @@
   {{- with .Site.Params.plausible -}}
     {{ printf `<script defer data-domain="%s" src="%s/js/script.js"></script>` .domain .plausibleRoot | safeHTML }}
   {{- end -}}
+
+  {{- with .Site.Params.goatcounter -}}
+    {{ printf `<script data-goatcounter="%s" async src="//gc.zgo.at/count.js"></script>` .domain | safeHTML }}
+  {{- end -}}
 </head>
 
 <body>
