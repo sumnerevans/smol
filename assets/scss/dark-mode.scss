@@ -189,6 +189,28 @@
     }
   }
 
+  table:not(.gallery) {
+    thead {
+      tr {
+        border-bottom: 1px solid white;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          background-color: #444;
+        }
+      }
+    }
+
+    th, td {
+      &.border-right {
+        border-right: 1px solid white;
+      }
+    }
+  }
+
   // TODO START move to custom
   details.youtube-expander > summary,
   details.portfolio-item > summary {

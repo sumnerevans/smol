@@ -470,3 +470,34 @@ footer {
     @include dark-mode-styles;
   }
 }
+
+table:not(.gallery) {
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  thead {
+    tr {
+      border-bottom: 1px solid black;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: #ccc;
+      }
+    }
+  }
+
+  th, td {
+    padding: 4px 8px;
+
+    &.align-right {
+      text-align: right;
+    }
+
+    &.border-right {
+      border-right: 1px solid black;
+    }
+  }
+}
