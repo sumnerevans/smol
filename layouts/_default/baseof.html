@@ -20,7 +20,7 @@
     <meta name="author" content="{{ . }}" />
   {{ end }}
   {{ if .Params.image }}
-    <meta property="og:image" content="{{ .Site.BaseURL }}/{{ path.Join .File.Dir .Params.image }}" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ path.Join .File.Dir .Params.image }}" />
   {{ else }}
     {{ if .Site.Params.logo }}
       <meta property="og:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.logo }}">
