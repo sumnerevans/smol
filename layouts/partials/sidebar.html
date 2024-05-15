@@ -1,14 +1,29 @@
-<aside>
+<aside class="related-posts">
   <div>
     <div>
       <h3>RELATED POSTS</h3>
     </div>
-    <div>
-      <ul>
-        {{ range (.Site.RegularPages.Related . | first 5) }}
-          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
+    <section class="articles">
+      {{ range (.Site.RegularPages.Related . | first 6) }}
+        <div class="article">
+          <h4 class="title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h4>
+          <p class="summary">{{ .Summary | truncate 140 "..." }}</p>
+          <small class="source">
+            on {{ .Date.Format "2006-01-02" }}
+            {{ with .Params.categories }}
+              in
+              {{ range first 1 . }}
+                <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              {{- end -}}
+              {{- range after 1 . -}}
+                , <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+              {{- end -}}
+            {{ end }}
+          </small>
+        </div>
+      {{ end }}
+    </section>
   </div>
 </aside>
