@@ -32,9 +32,16 @@
     {{ end }}
   </p>
   <div>
-    {{- if .Params.image -}}
+    {{ $image := .Resources.Get .Params.image }}
+    {{- if $image -}}
+      {{ $smallimage := $image.Resize "400x webp" }}
+      {{ $bigimage := $image.Resize "800x webp" }}
       <div class="summary-image">
-        <img src="{{ .Site.BaseURL }}/{{ path.Join .File.Dir .Params.image }}" />
+        <img
+          width="{{ $bigimage.Width }}" 
+          src="{{ $bigimage.RelPermalink }}"
+          srcset="{{ $smallimage.RelPermalink }} 400w, {{ $bigimage.RelPermalink }} 800w"
+        />
       </div>
     {{- end -}}
     {{ .Summary }}
