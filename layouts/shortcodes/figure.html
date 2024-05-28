@@ -1,0 +1,57 @@
+{{- $respSizes := slice "200" "400" "600" "800" -}}
+{{ $alt := or (.Get "alt") (.Get "caption" | markdownify | plainify) }}
+{{ $figure := . }}
+
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- $u := urls.Parse (.Get "src") -}}
+
+  <a href="{{ $u }}" target="_blank"{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+      {{- $imgRsc := . -}}
+      <picture>
+        <source type="image/webp" srcset="
+          {{- range $i, $e := $respSizes -}}
+            {{- if ge $imgRsc.Width . -}}
+              {{- if $i }}, {{ end -}}{{- ($imgRsc.Resize (print . "x webp photo") ).RelPermalink }} {{ . }}w
+            {{- end -}}
+          {{- end -}}" />
+        <img src="{{ ($imgRsc.Resize "800x").RelPermalink }}"
+          {{- with $alt }}
+            alt="{{ . }}"
+          {{- end -}}
+          {{- with $figure.Get "width" }} width="{{ . }}"{{ end -}}
+          {{- with $figure.Get "height" }} height="{{ . }}"{{ end -}}
+          loading="lazy"
+        />
+      </picture>
+    {{- else -}}
+      <img src="{{ $u.String }}"
+        {{- with $alt }}
+          alt="{{ . }}"
+        {{- end -}}
+        {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+        {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+        loading="lazy"
+      />
+    {{- end -}}
+  </a>
+  {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
+    <figcaption>
+      {{ with (.Get "title") -}}
+        <h4>{{ . }}</h4>
+      {{- end -}}
+      {{- if or (.Get "caption") (.Get "attr") -}}<p>
+        {{- with .Get "caption" -}}
+          {{ . | markdownify }}
+        {{ end }}
+        {{ if (.Get "attr") }}<i>Credit:
+          {{ with .Get "attrlink" }}
+            <a href="{{ . }}">
+          {{- end -}}
+          {{.Get "attr" | markdownify -}}
+          {{- if .Get "attrlink" }}</a>{{ end }}</i></p>
+        {{- end }}
+      {{- end }}
+    </figcaption>
+  {{- end }}
+</figure>
