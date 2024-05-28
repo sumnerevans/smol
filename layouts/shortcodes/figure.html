@@ -5,7 +5,7 @@
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
   {{- $u := urls.Parse (.Get "src") -}}
 
-  <a href="{{ $u }}" target="_blank"{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+  <a href="{{ with .Get "link" }}{{ . }}{{ else }}{{ $u }}{{ end }}" target="_blank"{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
     {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
       {{- $imgRsc := . -}}
       <picture>
