@@ -1,11 +1,26 @@
-{{ if .Title }}
-<figure>
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
-  <figcaption>{{ .Title }}</figcaption>
-</figure>
-{{ else }}
-<figure>
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
-</figure>
-{{ end }}
+{{- $respSizes := slice "200" "400" "600" "800" -}}
+{{- $alt := or .Title .Text -}}
 
+{{ if .Text }}
+  <figure>
+{{ end }}
+    <a href="{{ .Destination | safeURL }}" target="_blank" />
+      {{- with or (.Page.Resources.Get .Destination) (resources.Get .Destination) -}}
+        <picture>
+          {{- $imgRsc := . -}}
+          <source type="image/webp" srcset="
+            {{- range $i, $e := $respSizes -}}
+              {{- if ge $imgRsc.Width . -}}
+                {{- if $i }}, {{ end -}}{{- ($imgRsc.Resize (print . "x webp photo") ).RelPermalink }} {{ . }}w
+              {{- end -}}
+            {{- end -}}" />
+          <img src="{{ (.Resize "800x").RelPermalink }}" alt="{{ $alt }}" />
+        </picture>
+      {{- else -}}
+        <img src="{{ .Destination | safeURL }}" alt="{{ $alt }}" />
+      {{- end -}}
+    </a>
+{{ if .Text }}
+    <figcaption><b>{{ .Text | safeHTML }}</b></figcaption>
+  </figure>
+{{ end }}
