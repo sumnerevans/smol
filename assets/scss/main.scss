@@ -49,13 +49,10 @@ body {
   color: #333;
 }
 
-* {
+a {
   transition-property: all;
   transition-duration: 0.2s;
   transition-timing-function: ease;
-}
-
-a {
   color: #0c61e8;
   text-decoration: none;
 
@@ -141,6 +138,9 @@ figure {
 }
 
 img {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
   max-width: 100%;
   opacity: 0.9;
 
