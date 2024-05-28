@@ -46,7 +46,7 @@
         {{ end }}
         {{ if (.Get "attr") }}<i>Credit:
           {{ with .Get "attrlink" }}
-            <a href="{{ . }}">
+            <a href="{{ . }}" target="_blank">
           {{- end -}}
           {{.Get "attr" | markdownify -}}
           {{- if .Get "attrlink" }}</a>{{ end }}</i></p>
