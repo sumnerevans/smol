@@ -22,12 +22,15 @@
   {{ with .Site.Params.author }}
     <meta name="author" content="{{ . }}" />
   {{ end }}
-  {{ if .Params.image }}
-    <meta property="og:image" content="{{ .Site.BaseURL }}{{ path.Join .File.Dir .Params.image }}" />
-  {{ else }}
-    {{ if .Site.Params.logo }}
-      <meta property="og:image" content="{{ .Site.BaseURL }}/{{ .Site.Params.logo }}">
-    {{ end }}
+  {{- if .Params.image -}}
+    {{- $featureImage := .Resources.Get .Params.image -}}
+    {{- with $featureImage -}}
+      <meta property="og:image" content="{{ ( .Resize "800x webp" ).Permalink }}" />
+    {{- else -}}
+      <meta property="og:image" content="{{ .Site.BaseURL }}{{ path.Join .File.Dir .Params.image }}" />
+    {{- end -}}
+  {{ else if .Site.Params.logo }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.logo }}">
   {{ end }}
   {{ template "_internal/opengraph.html" . }}
   {{ template "_internal/twitter_cards.html" . }}
