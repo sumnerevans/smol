@@ -2,7 +2,15 @@
   <div class="name-and-subtitle">
     {{ if .Site.Params.logo }}
       <a href="{{ .Site.Home.Permalink }}" class="site-image">
-        <img src="{{ .Site.BaseURL }}/{{ .Site.Params.logo }}" alt="Jonathan Sumner Evans" />
+        {{ $logo := resources.Get .Site.Params.logo }}
+        {{ $logowebplarge := $logo.Resize "300x webp" }}
+        {{ $logowebpsmall := $logo.Resize "150x webp" }}
+        {{ $logojpg := $logo.Resize "150x" }}
+        <picture>
+          <source type="image/webp" srcset="{{ $logowebplarge.Permalink }} 300w" />
+          <source type="image/webp" srcset="{{ $logowebpsmall.Permalink }} 150w" />
+          <img src="{{ $logojpg.Permalink }}" width="150" height="150" alt="Jonathan Sumner Evans" />
+        </picture>
       </a>
     {{ end }}
     <div>
