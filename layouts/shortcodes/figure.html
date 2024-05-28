@@ -5,9 +5,17 @@
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
   {{- $u := urls.Parse (.Get "src") -}}
 
-  <a href="{{ with .Get "link" }}{{ . }}{{ else }}{{ $u }}{{ end }}" target="_blank"{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
-    {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
-      {{- $imgRsc := . -}}
+  {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+    {{- $imgRsc := . -}}
+    {{- with $figure.Get "link" -}}
+      <a href="{{ . }}" target="_blank"{{ with $figure.Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- else -}}
+      {{- if gt .Width 4000 -}}
+        <a href="{{ ( .Resize "4000x webp" ).RelPermalink }}" target="_blank" />
+      {{- else -}}
+        <a href="{{ ( .Process "webp" ).RelPermalink }}" target="_blank" />
+      {{- end -}}
+    {{- end -}}
       <picture>
         <source type="image/webp" srcset="
           {{- range $i, $e := $respSizes -}}
@@ -15,7 +23,7 @@
               {{- if $i }}, {{ end -}}{{- ($imgRsc.Resize (print . "x webp photo") ).RelPermalink }} {{ . }}w
             {{- end -}}
           {{- end -}}" />
-        <img src="{{ ($imgRsc.Resize "800x").RelPermalink }}"
+        <img src="{{ ($imgRsc.Resize "800x webp").RelPermalink }}"
           {{- with $alt }}
             alt="{{ . }}"
           {{- end -}}
@@ -24,7 +32,9 @@
           loading="lazy"
         />
       </picture>
-    {{- else -}}
+    </a>
+  {{- else -}}
+    <a href="{{ with .Get "link" }}{{ . }}{{ else }}{{ $u }}{{ end }}" target="_blank"{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
       <img src="{{ $u.String }}"
         {{- with $alt }}
           alt="{{ . }}"
@@ -33,8 +43,8 @@
         {{- with .Get "height" }} height="{{ . }}"{{ end -}}
         loading="lazy"
       />
-    {{- end -}}
-  </a>
+    </a>
+  {{- end -}}
   {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
     <figcaption>
       {{ with (.Get "title") -}}

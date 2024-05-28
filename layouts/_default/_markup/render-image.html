@@ -4,22 +4,28 @@
 {{ if .Text }}
   <figure>
 {{ end }}
-    <a href="{{ .Destination | safeURL }}" target="_blank" />
-      {{- with or (.Page.Resources.Get .Destination) (resources.Get .Destination) -}}
-        <picture>
+  {{- with or (.Page.Resources.Get .Destination) (resources.Get .Destination) -}}
+    {{ if gt .Width 4000 }}
+      <a href="{{ ( .Resize "4000x webp" ).RelPermalink }}" target="_blank" />
+    {{ else }}
+      <a href="{{ ( .Process "webp" ).RelPermalink }}" target="_blank" />
+    {{ end }}
+      <picture>
+        <source type="image/webp" srcset="
           {{- $imgRsc := . -}}
-          <source type="image/webp" srcset="
-            {{- range $i, $e := $respSizes -}}
-              {{- if ge $imgRsc.Width . -}}
-                {{- if $i }}, {{ end -}}{{- ($imgRsc.Resize (print . "x webp photo") ).RelPermalink }} {{ . }}w
-              {{- end -}}
-            {{- end -}}" />
-          <img loading="lazy" src="{{ (.Resize "800x").RelPermalink }}" alt="{{ $alt }}" />
-        </picture>
-      {{- else -}}
-        <img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ $alt }}" />
-      {{- end -}}
+          {{- range $i, $e := $respSizes -}}
+            {{- if ge $imgRsc.Width . -}}
+              {{- if $i }}, {{ end -}}{{- ( $imgRsc.Resize (print . "x webp photo") ).RelPermalink }} {{ . }}w
+            {{- end -}}
+          {{- end -}}" />
+        <img loading="lazy" src="{{ ( .Resize "800x webp" ).RelPermalink }}" alt="{{ $alt }}" />
+      </picture>
     </a>
+  {{- else -}}
+    <a href="{{ .Destination | safeURL }}" target="_blank" />
+      <img loading="lazy" src="{{ .Destination | safeURL }}" alt="{{ $alt }}" />
+    </a>
+  {{- end -}}
 {{ if .Text }}
     <figcaption><b>{{ .Text | safeHTML }}</b></figcaption>
   </figure>
