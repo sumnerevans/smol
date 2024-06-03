@@ -1,4 +1,5 @@
 @import 'fork-awesome/variables';
+@import 'fork-awesome/functions';
 
 // Foreground/background colors
 $foreground-dark-mode: #dadada;
@@ -9,25 +10,25 @@ $admonition-attention-color: #856404;
 $admonition-attention-color-dark-theme: #fbda7a;
 $admonition-attention-bg-color: #fff3cd;
 $admonition-attention-bg-color-dark-theme: #4a3900;
-$admonition-attention-icon: $fa-var-exclamation-triangle;
+$admonition-attention-icon: fa-content($fa-var-exclamation);
 
 $admonition-caution-color: $admonition-attention-color;
 $admonition-caution-color-dark-theme: $admonition-attention-color-dark-theme;
 $admonition-caution-bg-color: $admonition-attention-bg-color;
 $admonition-caution-bg-color-dark-theme: $admonition-attention-bg-color-dark-theme;
-$admonition-caution-icon: $admonition-attention-icon;
+$admonition-caution-icon: fa-content($fa-var-exclamation-circle);
 
 $admonition-warning-color: $admonition-attention-color;
 $admonition-warning-color-dark-theme: $admonition-attention-color-dark-theme;
 $admonition-warning-bg-color: $admonition-attention-bg-color;
 $admonition-warning-bg-color-dark-theme: $admonition-attention-bg-color-dark-theme;
-$admonition-warning-icon: $admonition-attention-icon;
+$admonition-warning-icon: fa-content($fa-var-exclamation-triangle);
 
 $admonition-danger-color: #721c24;
 $admonition-danger-color-dark-theme: #ebadb3;
 $admonition-danger-bg-color: #f8d7da;
 $admonition-danger-bg-color-dark-theme: #28070a;
-$admonition-danger-icon: $fa-var-exclamation-circle;
+$admonition-danger-icon: fa-content($fa-var-hand-stop-o);
 
 $admonition-error-color: $admonition-danger-color;
 $admonition-error-color-dark-theme: $admonition-danger-color-dark-theme;
@@ -35,11 +36,11 @@ $admonition-error-bg-color: $admonition-danger-bg-color;
 $admonition-error-bg-color-dark-theme: $admonition-danger-bg-color-dark-theme;
 $admonition-error-icon: $admonition-danger-icon;
 
-$admonition-hint-color: #004085 ;
+$admonition-hint-color: #004085;
 $admonition-hint-color-dark-theme: #7abaff;
 $admonition-hint-bg-color: #cce5ff;
 $admonition-hint-bg-color-dark-theme: #001933;
-$admonition-hint-icon: $fa-var-lightbulb-o;
+$admonition-hint-icon: fa-content($fa-var-lightbulb-o);
 
 $admonition-tip-color: $admonition-hint-color;
 $admonition-tip-color-dark-theme: $admonition-hint-color-dark-theme;
@@ -51,10 +52,10 @@ $admonition-important-color: #155724;
 $admonition-important-color-dark-theme: #a8eab7;
 $admonition-important-bg-color: #d4edda;
 $admonition-important-bg-color-dark-theme: #122b18;
-$admonition-important-icon: $fa-var-info-circle;
+$admonition-important-icon: fa-content($fa-var-exclamation-circle);
 
-$admonition-note-color: $admonition-important-color;
-$admonition-note-color-dark-theme: $admonition-important-color-dark-theme;
-$admonition-note-bg-color: $admonition-important-bg-color;
-$admonition-note-bg-color-dark-theme: $admonition-important-bg-color-dark-theme;
-$admonition-note-icon: $admonition-important-icon;
+$admonition-note-color: $admonition-hint-color;
+$admonition-note-color-dark-theme: $admonition-hint-color-dark-theme;
+$admonition-note-bg-color: $admonition-hint-bg-color;
+$admonition-note-bg-color-dark-theme: $admonition-hint-bg-color-dark-theme;
+$admonition-note-icon: fa-content($fa-var-info-circle);
