@@ -15,7 +15,9 @@
       <title>{{ . }}</title>
     {{ end }}
   {{ end }}
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+  {{- with or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}
+    <meta name="description" content="{{ replace . "\n" " " }}" />
+  {{- end }}
   {{ if (or .Keywords .Params.tags .Params.categories) }}
     <meta name="keywords" content="{{ delimit (union .Keywords (union .Params.tags .Params.categories)) "," }}" />
   {{ end }}
@@ -32,8 +34,8 @@
   {{ else if .Site.Params.logo }}
     <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.logo }}">
   {{ end }}
-  {{ template "_internal/opengraph.html" . }}
-  {{ template "_internal/twitter_cards.html" . }}
+  {{ partial "opengraph.html" . }}
+  {{ partial "twitter_cards.html" . }}
 
   <!-- CSS -->
   <!-- Always make sure to force monospace, even if the style hasn't been loaded yet. -->
