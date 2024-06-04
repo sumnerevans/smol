@@ -36,7 +36,7 @@
     border-color: $foreground-dark-mode;
   }
 
-  a:link, a:visited {
+  a {
     color: #84b4ff;
 
     &:hover, &:active, &:focus {
@@ -54,6 +54,14 @@
     &:hover, &:active, &:focus {
       background-color: #fff;
       color: #000;
+    }
+  }
+
+  .admonition  a {
+    color: lighten(#84b4ff, 10%);
+
+    &:hover, &:active, &:focus {
+      color: lighten(#84b4ff, 20%);
     }
   }
 
