@@ -59,3 +59,9 @@ $admonition-note-color-dark-theme: $admonition-hint-color-dark-theme;
 $admonition-note-bg-color: $admonition-hint-bg-color;
 $admonition-note-bg-color-dark-theme: $admonition-hint-bg-color-dark-theme;
 $admonition-note-icon: fa-content($fa-var-info-circle);
+
+$admonition-definition-color: #333;
+$admonition-definition-color-dark-theme: #dadada;
+$admonition-definition-bg-color: #f0f0f0;
+$admonition-definition-bg-color-dark-theme: #202020;
+$admonition-definition-icon: fa-content($fa-var-book);

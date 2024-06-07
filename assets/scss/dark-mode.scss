@@ -196,6 +196,12 @@
       color: $admonition-warning-color-dark-theme;
       background-color: $admonition-warning-bg-color-dark-theme;
     }
+
+    &.definition {
+      border: 1px solid $admonition-definition-color-dark-theme;
+      color: $admonition-definition-color-dark-theme;
+      background-color: $admonition-definition-bg-color-dark-theme;
+    }
   }
 
   table:not(.gallery) {

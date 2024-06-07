@@ -29,7 +29,7 @@
 
   // Specifics for each type of admonition
   &.attention {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-attention-color;
     color: $admonition-attention-color;
     background-color: $admonition-attention-bg-color;
 
@@ -39,7 +39,7 @@
   }
 
   &.caution {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-caution-color;
     color: $admonition-caution-color;
     background-color: $admonition-caution-bg-color;
 
@@ -49,7 +49,7 @@
   }
 
   &.danger {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-danger-color;
     color: $admonition-danger-color;
     background-color: $admonition-danger-bg-color;
 
@@ -59,7 +59,7 @@
   }
 
   &.error {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-error-color;
     color: $admonition-error-color;
     background-color: $admonition-error-bg-color;
 
@@ -69,7 +69,7 @@
   }
 
   &.hint {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-hint-color;
     color: $admonition-hint-color;
     background-color: $admonition-hint-bg-color;
 
@@ -79,7 +79,7 @@
   }
 
   &.important {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-important-color;
     color: $admonition-important-color;
     background-color: $admonition-important-bg-color;
 
@@ -89,7 +89,7 @@
   }
 
   &.tip {
-    border: 1px solid $admonition-note-color;
+    border: 1px solid $admonition-tip-color;
     color: $admonition-tip-color;
     background-color: $admonition-tip-bg-color;
 
@@ -98,13 +98,23 @@
     }
   }
 
-  &.warning{
-    border: 1px solid $admonition-note-color;
+  &.warning {
+    border: 1px solid $admonition-warning-color;
     color: $admonition-warning-color;
     background-color: $admonition-warning-bg-color;
 
     .admonition-title::before {
       content: $admonition-warning-icon;
+    }
+  }
+
+  &.definition {
+    border: 1px solid $admonition-definition-color;
+    color: $admonition-definition-color;
+    background-color: $admonition-definition-bg-color;
+
+    .admonition-title::before {
+      content: $admonition-definition-icon;
     }
   }
 }
