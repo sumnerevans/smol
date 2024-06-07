@@ -60,6 +60,12 @@ a {
     color: darken(#0c61e8, 20%);
     text-decoration: underline;
   }
+
+  i.fa-external-link {
+    text-decoration: none;
+    margin-left: 0.3em;
+    font-size: 0.75em;
+  }
 }
 
 a.btn {
