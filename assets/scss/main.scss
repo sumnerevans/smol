@@ -527,11 +527,20 @@ table:not(.gallery) {
 .post-summary {
   display: flex;
 
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+
   .summary-image {
     width: 250px;
     margin: 4px 16px 0 0;
     flex-grow: 0;
     flex-shrink: 0;
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   .summary-text {
