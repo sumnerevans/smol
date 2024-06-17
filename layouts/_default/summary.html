@@ -31,7 +31,7 @@
       {{- end -}}
     {{ end }}
   </p>
-  <div>
+  <div class="post-summary">
     {{ $image := .Resources.Get .Params.image }}
     {{- if $image -}}
       {{ $smallimage := $image.Resize "400x webp" }}
@@ -44,9 +44,11 @@
         />
       </div>
     {{- end -}}
-    {{ .Summary }}
-    {{ if .Truncated }}
-      <a href="{{ .Permalink }}">Read more...</a>
-    {{ end }}
+    <p class="summary-text">
+      {{ .Summary }}
+      {{ if .Truncated }}
+        <a href="{{ .Permalink }}">Read more...</a>
+      {{- end -}}
+    </p>
   </div>
 </article>

@@ -523,3 +523,18 @@ table:not(.gallery) {
     }
   }
 }
+
+.post-summary {
+  display: flex;
+
+  .summary-image {
+    width: 250px;
+    margin: 4px 16px 0 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .summary-text {
+    margin: 0;
+  }
+}
