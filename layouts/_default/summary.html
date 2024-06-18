@@ -1,6 +1,8 @@
 <article>
-  <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-  <p>
+  <div class="article-title">
+    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+  </div>
+  <p class="article-info">
     <b>
       Posted on
       <time>{{ .Date.Format (default "2006-01-02 15:04:05" .Site.Params.dateFmt) }}</time>

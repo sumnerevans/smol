@@ -12,7 +12,7 @@
       {{- end -}}
     </div>
     {{ if and (or ($reg.Prev .) ($reg.Next .)) (or .Date .Params.tags .Params.categories) }}
-      <p>
+      <p class="article-info">
         <b>
           Posted
           {{ if .Date }}

@@ -108,10 +108,7 @@ div.article-title {
 
   h1 {
     flex-grow: 1;
-
-    @media screen and (max-width: 600px) {
-      margin-bottom: 15px;
-    }
+    margin: 15px 0;
   }
 
   img {
@@ -123,6 +120,14 @@ div.article-title {
     @media screen and (max-width: 600px) {
       margin-left: 0;
     }
+  }
+}
+
+p.article-info {
+  margin-top: 0;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 15px;
   }
 }
 
