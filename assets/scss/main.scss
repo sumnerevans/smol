@@ -97,6 +97,35 @@ h1 {
   font-size: 2em;
 }
 
+div.article-title {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  h1 {
+    flex-grow: 1;
+
+    @media screen and (max-width: 600px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  img {
+    display: block;
+    margin-left: 8px;
+    min-height: 42px;
+    min-width: 131px;
+
+    @media screen and (max-width: 600px) {
+      margin-left: 0;
+    }
+  }
+}
+
 main *:not(pre) > code,
 tt,
 kbd {
