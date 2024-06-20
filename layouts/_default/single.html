@@ -59,9 +59,9 @@
     <a class="next" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | truncate 50 "..." }} »</a>
   {{ end }}
 </div>
-{{ partial "sidebar.html" . }}
-{{ partial "webring.html" . }}
 {{ if and (or ($reg.Prev .) ($reg.Next .)) (.Site.Params.issoUrl) }}
+  {{ partial "sidebar.html" . }}
+  {{ partial "webring.html" . }}
   <aside>
     <h3>COMMENTS</h3>
     <!-- Isso -->
