@@ -1,25 +1,24 @@
 {{ define "main" }}
 <main>
   {{ $listtitle := .Title }}
-  {{ if or .Title .Content }}
+  {{- if or .Title .Content -}}
   <div>
-    {{ with .Title }}<h1>{{ . }}</h1>{{ end }}
-    {{ with .Content }}<div>{{ . }}</div>{{ end }}
+    {{- with .Title -}}<h1>{{ . }}</h1>{{- end -}}
+    {{- with .Content -}}<div>{{ . }}</div>{{- end -}}
   </div>
   {{ end }}
 
   <ul>
-    {{ range .Paginator.Pages }}
+    {{- range .Paginator.Pages -}}
     <li>
       <div class="post-title">
-        {{ if and (ne $listtitle "Posts") (ne $listtitle "Categories") (ne $listtitle "Tags") }}
+        {{- if and (ne $listtitle "Categories") (ne $listtitle "Tags") -}}
           {{ .Date.Format "2006-01-02" }}
-        {{ else }}
         {{ end }}
           <a href="{{ .RelPermalink }}">{{.Title }}</a>
         </div>
     </li>
-    {{ end }}
+    {{- end -}}
   </ul>
   {{ partial "pagination.html" . }}
 </main>
