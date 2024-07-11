@@ -143,13 +143,8 @@ kbd {
 pre {
   border: 1px solid black;
   font-family: Iosevka, monospace;
-  opacity: 0.8;
   overflow-x: auto;
   padding: 24px;
-}
-
-pre:hover {
-  opacity: 1;
 }
 
 article {
@@ -509,20 +504,20 @@ footer {
 
 @media (prefers-color-scheme: no-preference), (prefers-color-scheme: dark) {
   body:not(.light-theme) {
-    @import 'pygments/monokai';
+    @import 'chroma/onedark';
     @include dark-mode-styles;
   }
   body.light-theme {
-    @import 'pygments/github';
+    @import 'chroma/pygments';
   }
 }
 
 @media (prefers-color-scheme: light) {
   body:not(.dark-theme) {
-    @import 'pygments/github';
+    @import 'chroma/pygments';
   }
   body.dark-theme {
-    @import 'pygments/monokai';
+    @import 'chroma/onedark';
     @include dark-mode-styles;
   }
 }
