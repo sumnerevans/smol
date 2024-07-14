@@ -34,8 +34,6 @@
   {{ else if .Site.Params.logo }}
     <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.logo }}">
   {{ end }}
-  {{ partial "opengraph.html" . }}
-  {{ partial "twitter_cards.html" . }}
 
   <!-- CSS -->
   <!-- Always make sure to force monospace, even if the style hasn't been loaded yet. -->
