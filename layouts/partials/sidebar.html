@@ -12,7 +12,7 @@
           </h4>
           <p class="summary">{{ .Summary | truncate 140 "..." }}</p>
           <small class="source">
-            on {{ .Date.Format "2006-01-02" }}
+            on {{ .Date.Format "01/02/2006" }}
             {{ with .Params.categories }}
               in
               {{ range first 1 . }}
