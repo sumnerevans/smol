@@ -4,12 +4,6 @@
   <article>
     <div class="article-title">
       <h1>{{ .Title }}</h1>
-      {{- if and (or ($reg.Prev .) ($reg.Next .)) (not .Params.isbyai) -}}
-        <a href="https://notbyai.fyi" target="_blank">
-          <img src="https://notbyai.fyi/img/written-by-human-not-by-ai-black.svg"
-            loading="lazy" alt="Written by Human, Not by AI">
-        </a>
-      {{- end -}}
     </div>
     {{ if and (or ($reg.Prev .) ($reg.Next .)) (or .Date .Params.tags .Params.categories) }}
       <p class="article-info">

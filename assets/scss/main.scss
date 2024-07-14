@@ -54,7 +54,7 @@ a {
   transition-duration: 0.2s;
   transition-timing-function: ease;
   color: #0c61e8;
-  text-decoration: dotted underline;
+  text-decoration: none;
 
   &:hover, &:active, &:focus {
     color: darken(#0c61e8, 20%);
