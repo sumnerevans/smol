@@ -50,6 +50,7 @@
     <a class="prev" href="{{ .Permalink }}" title="{{ .Title }}">« {{ .Title | truncate 50 "..." }}</a>
   {{ end }}
   {{ with $reg.Next . }}
+    <span></span>
     <a class="next" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | truncate 50 "..." }} »</a>
   {{ end }}
 </div>
