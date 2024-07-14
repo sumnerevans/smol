@@ -59,4 +59,7 @@
     <a class="next" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | truncate 50 "..." }} »</a>
   {{ end }}
 </div>
+{{ if and (or ($reg.Prev .) ($reg.Next .)) }}
+  {{ partial "sidebar.html" . }}
+{{ end }}
 {{ end }}

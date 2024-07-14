@@ -83,6 +83,64 @@
     background-color: #ffffff18;
   }
 
+  .webring .articles .article,
+  .related-posts .articles .article {
+    background-color: #202020;
+  }
+
+  section#isso-thread {
+    .auth-section p.input-wrapper input,
+    .notification-section input {
+      background: #111;
+      color: #eee;
+    }
+
+    >h4 {
+      color: #eee;
+    }
+
+    .isso-postbox > .form-wrapper {
+      div.textarea {
+        background: #111;
+      }
+
+      .preview {
+        background: repeating-linear-gradient(
+          -45deg,
+          #0a0a0a, #0a0a0a 10px,
+          #111 10px, #111 20px
+        );
+      }
+    }
+
+    .isso-comment > div.text-wrapper {
+      > .isso-comment-header {
+        .author {
+          color: #eee;
+        }
+
+        .spacer, a.permalink, .note, a.parent {
+          color: #aaa;
+
+          &:hover {
+            color: #eee;
+          }
+        }
+      }
+
+      > .isso-comment-footer a:hover {
+        // Unfortunately, Isso uses a lot of !important in its styles, so I
+        // have to override that.
+        text-shadow: #222 0 0 1px !important;
+      }
+    }
+
+    .post-action input {
+      background-color: #111;
+      color: #eee;
+    }
+  }
+
   // Dark mode admonitions
   .admonition {
     // Default to note look.
