@@ -431,67 +431,6 @@ dd {
   }
 }
 
-.webring, .related-posts {
-  .articles {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -0.5rem;
-
-    .article {
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-      padding: 0.5rem;
-      margin: 0.5rem;
-      background: #eee;
-      min-width: 12rem;
-
-      .title {
-        margin: 0;
-      }
-
-      .summary {
-        font-size: 0.8rem;
-        flex: 1 1 0;
-      }
-    }
-  }
-
-  .attribution {
-    margin: 0.5em 0;
-    text-align: right;
-    font-size: 0.8rem;
-    color: #555;
-  }
-}
-
-// Isso
-// Add a bit of padding between each of the entry boxes in the Isso auth
-// section. By default, they are squished together, which looks terrible.
-section#isso-thread {
-  .auth-section .input-wrapper {
-    margin-right: 5px;
-  }
-
-  .isso-comment > div.text-wrapper {
-    a.author:hover {
-      text-decoration: underline;
-    }
-  }
-
-  input {
-    font-family: Iosevka, monospace;
-    color: #333;
-  }
-
-  .post-action input {
-    border: none;
-    color: #333;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-}
-
 footer {
   border-top: 2px solid #333;
   margin-top: 2em;
