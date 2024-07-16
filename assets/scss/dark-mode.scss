@@ -42,6 +42,11 @@
     &:hover, &:active, &:focus {
       color: lighten(#84b4ff, 10%);
     }
+
+    &.disabled {
+      text-decoration: none;
+      color: gray;
+    }
   }
 
   a.btn {

@@ -61,6 +61,11 @@ a {
     text-decoration: underline;
   }
 
+  &.disabled {
+    text-decoration: none;
+    color: gray;
+  }
+
   i.fa-external-link {
     text-decoration: none;
     margin-left: 0.3em;
