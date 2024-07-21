@@ -14,9 +14,7 @@
     }
   }
 
-  p, div, pre {
-    margin: 1em;
-  }
+  padding: 0 1em;
 
   // By default, make it look like a note.
   border: 1px solid $admonition-note-color;
