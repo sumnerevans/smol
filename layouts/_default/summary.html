@@ -45,6 +45,10 @@
           srcset="{{ $smallimage.RelPermalink }} 400w, {{ $bigimage.RelPermalink }} 800w"
         />
       </div>
+    {{- else if .Params.image -}}
+      <div class="summary-image">
+      <img width="400" src="{{ .Permalink }}/{{ .Params.image }}" />
+      </div>
     {{- end -}}
     <p class="summary-text">
       {{ .Summary }}
