@@ -1,11 +1,11 @@
-{{- if .Site.RegularPages.Related . -}}
+{{- if partial "func/FilterPages" (.Site.RegularPages.Related .) -}}
 <aside class="related-posts">
   <div>
     <div>
       <h3>RELATED POSTS</h3>
     </div>
     <section class="articles">
-      {{- range (.Site.RegularPages.Related . | first 6) -}}
+      {{- range (.Site.RegularPages.Related . | partial "func/FilterPages" | first 6) -}}
         <div class="article">
           <h4 class="title">
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>

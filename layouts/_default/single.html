@@ -12,6 +12,14 @@
       {{- end -}}
     </div>
     {{ if and (or ($reg.Prev .) ($reg.Next .)) (or .Date .Params.tags .Params.categories) }}
+      {{ if .Params.unlisted }}
+        <div class="admonition danger">
+          <p class="first admonition-title">Unlisted Pre-Print</p>
+          <p class="last">
+            This post is not published on the homepage or in the RSS feed.
+          </p>
+        </div>
+      {{ end }}
       <p class="article-info">
         <b>
           Posted

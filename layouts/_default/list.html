@@ -9,7 +9,7 @@
   {{ end }}
 
   <ul>
-    {{- range .Paginator.Pages -}}
+    {{- range partial "func/FilterPages" .Paginator.Pages -}}
     <li>
       <div class="post-title">
         {{- if and (ne $listtitle "Categories") (ne $listtitle "Tags") -}}

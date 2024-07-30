@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
-  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-  {{ range $paginator.Pages }}
+  {{ $paginator := .Paginate (partial "func/FilterPages" (where .Site.RegularPages "Type" "in" .Site.Params.mainSections)) }}
+  {{- range .Paginator.Pages -}}
     {{ .Render "summary" }}
   {{ end }}
   {{ partial "pagination.html" . }}
