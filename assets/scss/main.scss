@@ -191,6 +191,11 @@ figure {
   }
 }
 
+picture {
+  margin: 0 auto;
+  display: block;
+}
+
 img {
   transition-property: all;
   transition-duration: 0.2s;

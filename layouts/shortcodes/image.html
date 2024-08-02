@@ -1,0 +1,46 @@
+{{- $respSizes := slice "200" "400" "600" "800" -}}
+{{- $alt := .Get "alt" -}}
+{{- $image := . -}}
+{{- $width := .Get "width" -}}
+{{- $u := urls.Parse (.Get "src") -}}
+
+{{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+  {{- $imgRsc := . -}}
+  {{- with $image.Get "link" -}}
+    <a href="{{ . }}" target="_blank"{{ with $image.Get "rel" }} rel="{{ . }}"{{ end }}>
+  {{- else -}}
+    {{- if gt .Width 4000 -}}
+      <a href="{{ ( .Resize "4000x webp" ).RelPermalink }}" target="_blank" />
+    {{- else -}}
+      <a href="{{ ( .Process "webp" ).RelPermalink }}" target="_blank" />
+    {{- end -}}
+  {{- end -}}
+  <picture {{ with $width }}style="max-width:{{ .}}px"{{ end }}>
+      <source type="image/webp" srcset="
+        {{- range $i, $e := $respSizes -}}
+          {{- if ge $imgRsc.Width . -}}
+            {{- if $i }}, {{ end -}}{{- ($imgRsc.Resize (print . "x webp photo") ).RelPermalink }} {{ . }}w
+          {{- end -}}
+        {{- end -}}" />
+      <img src="{{ ($imgRsc.Resize "800x webp").RelPermalink }}"
+        {{- with $alt }}
+          alt="{{ . }}"
+        {{- end -}}
+        {{- with $image.Get "width" }} width="{{ . }}"{{ end -}}
+        {{- with $image.Get "height" }} height="{{ . }}"{{ end -}}
+        loading="lazy"
+      />
+    </picture>
+  </a>
+{{- else -}}
+  <a href="{{ with .Get "link" }}{{ . }}{{ else }}{{ $u }}{{ end }}" target="_blank"{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    <img src="{{ $u.String }}"
+      {{- with $alt }}
+        alt="{{ . }}"
+      {{- end -}}
+      {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+      {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+      loading="lazy"
+    />
+  </a>
+{{- end -}}
