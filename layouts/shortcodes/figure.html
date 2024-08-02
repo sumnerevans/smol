@@ -2,7 +2,7 @@
 {{ $alt := or (.Get "alt") (.Get "caption" | markdownify | plainify) }}
 {{ $figure := . }}
 
-<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }} {{ with .Get "width" }} style="max-width:{{ . }}px"{{ end }}>
   {{- $u := urls.Parse (.Get "src") -}}
 
   {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
