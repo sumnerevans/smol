@@ -61,10 +61,14 @@
 </main>
 <div class="next-prev">
   {{ with $reg.Prev . }}
-    <a class="prev" href="{{ .Permalink }}" title="{{ .Title }}">« {{ .Title | truncate 50 "..." }}</a>
+    {{ if not .Params.unlisted }}
+      <a class="prev" href="{{ .Permalink }}" title="{{ .Title }}">« {{ .Title | truncate 50 "..." }}</a>
+    {{ end }}
   {{ end }}
   {{ with $reg.Next . }}
-    <a class="next" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | truncate 50 "..." }} »</a>
+    {{ if not .Params.unlisted }}
+      <a class="next" href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title | truncate 50 "..." }} »</a>
+    {{ end }}
   {{ end }}
 </div>
 {{ if and (or ($reg.Prev .) ($reg.Next .)) (.Site.Params.issoUrl) }}
