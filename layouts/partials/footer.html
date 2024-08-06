@@ -1,12 +1,23 @@
 <footer>
-  <p>
-    Find me around the web:
-    {{- range first 1 .Site.Menus.footer }}
-      <a href="{{ .URL }}" target="_blank"><b>{{ .Name }}</b></a>
-    {{- end }}
-    {{- range after 1 .Site.Menus.footer }}
-      | <a href="{{ .URL }}" target="_blank"><b>{{ .Name }}</b></a>
-    {{- end }}
+  <p class="links">
+    <a href="https://matrix.to/#/@sumner:nevarro.space" target="_blank" title="Matrix">
+      <i class="fa fa-matrix-org"></i>
+    </a>
+    <a href="https://github.com/sumnerevans" target="_blank" title="GitHub">
+      <i class="fa fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/sumnerevans" target="_blank" title="LinkedIn">
+      <i class="fa fa-linkedin"></i>
+    </a>
+    <a href="https://www.youtube.com/@sumnerevans" target="_blank" title="YouTube">
+      <i class="fa fa-youtube-play"></i>
+    </a>
+    <a href="https://stackoverflow.com/users/2319844/sumner-evans" target="_blank" title="StackOverflow">
+      <i class="fa fa-stack-overflow"></i>
+    </a>
+    <a href="https://liberapay.com/sumner" target="_blank" title="LiberaPay">
+      <i class="fa fa-liberapay"></i>
+    </a>
   </p>
   <p>
     Built with <a href="https://gohugo.io/">Hugo</a> using
@@ -18,9 +29,7 @@
     theme.
   </p>
   <p>
-    &copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}"><b>{{ .Site.Title }}</b></a>.
-    This work is licensed under the
-    <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
+    &copy; {{ now.Year }} {{ .Site.Title }}. All Rights Reserved.
   </p>
 </footer>
 
