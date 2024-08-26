@@ -1,3 +1,5 @@
+# MY FORK HAS BEEN VENDORED INTO MY WEBSITE: https://github.com/sumnerevans/sumnerevans.com/tree/master/themes/smol
+
 # smol
 
 A minimal, monospaced blogging theme for Hugo that respects your privacy and is easy on your bandwidth.
